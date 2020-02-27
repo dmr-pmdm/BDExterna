@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     txtEmail.setText("email...");
                 }
+                c.close();
             }
         });
 
@@ -82,5 +83,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        bd.close();
     }
 }
